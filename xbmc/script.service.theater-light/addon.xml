@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.theater-light"
+	name="Theater Lights"
+	provider-name="Rodro"
+	version="0.1.0">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.cinema.experience" version="3.0.10"/>
+	</requires>
+<!--	<extension point="xbmc.python.pluginsource" library="theater-lights-cli.py">-->
+<!--		<provides>executable</provides>-->
+<!--	</extension>-->
+	<extension point="xbmc.service" library="theater-lights-cli.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Control the environmental lights</summary>
+		<description lang="en">Using the cinema-experience add-on, take your movie-watching experience to the next level by automatically setting the lights level during the different stages of the CE script run. Dim the lights when the trailers start, and turn them off completely for the feature presentation.</description>
+		<disclaimer lang="en">This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License *see LICENSE.txt</disclaimer>
+		<language>en</language>
+		<platform>all</platform>
+		<license>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</license>
+		<forum>
+		</forum>
+		<website>https://code.google.com/p/theater-light/</website>
+		<email>theater-lights@rodronet.com.ar</email>
+		<source>https://theater-light.googlecode.com/svn</source>
+	</extension>
+</addon>

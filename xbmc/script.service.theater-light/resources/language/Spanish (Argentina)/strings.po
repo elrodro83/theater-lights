@@ -1,0 +1,61 @@
+# XBMC Media Center language file
+# Addon Name: Theater Light
+# Addon id: script.service.theater-light
+# Addon Provider: Rodro
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Addons\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Rodro\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_AR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32001"
+msgid "Listener UDP Port"
+msgstr "Puerto UDP Destino"
+
+msgctxt "#32002"
+msgid "Light Intensity Levels"
+msgstr "Niveles de intensidad lumínica"
+
+msgctxt "#32003"
+msgid "Full on"
+msgstr "Encendido"
+
+msgctxt "#32004"
+msgid "Full off"
+msgstr "Apagado"
+
+msgctxt "#32005"
+msgid "Movie Theater Intro"
+msgstr "Introducción del Cine"
+
+msgctxt "#32006"
+msgid "Coming Attractions"
+msgstr "Futuros Estrenos"
+
+msgctxt "#32007"
+msgid "Playback Paused"
+msgstr "Reproducción en Pausa"
+
+msgctxt "#32008"
+msgid "Fade Time (seconds)"
+msgstr "Tiempo de apagado (segundos)"
+
+msgctxt "#32009"
+msgid "Generate Cinema Experience HA Script"
+msgstr "Generar Script HA para Cinema Experience"
+
+msgctxt "#32010"
+msgid "General"
+msgstr "General"
+
+msgctxt "#32011"
+msgid "Check that you have enabled the triggers in the home automation configuration of the Cinema Experience Add-on!"
+msgstr "Revisa que hayas habilitado los eventos en la configuración de 'Home Automation' del Add-on Cinema Experience!"
