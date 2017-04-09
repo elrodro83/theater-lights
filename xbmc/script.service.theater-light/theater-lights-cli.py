@@ -13,7 +13,7 @@ class MyPlayer(xbmc.Player) :
 
         self.broadcastUDP("<b>theater-lighs<li>config</b>{0:.2f};{1:.2f};{2:.2f};{3:.2f};{4:.2f};{5:.2f}".format(float(settings.getSetting("lightsFullOn")) / 100, float(settings.getSetting("lightsFullOff")) / 100, float(settings.getSetting("lightsTheaterIntro")) / 100, float(settings.getSetting("lightsComingAttractions")) / 100, float(settings.getSetting("lightsPaused")) / 100, float(settings.getSetting("lightsFadeTime"))))
 
-    def broadcastUDP( self, data, ipaddress = '255.255.255.255' ):
+    def broadcastUDP( self, data, ipaddress = settings.getSetting("lightsHost") ):
         IPADDR = ipaddress
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
         if hasattr(socket,'SO_BROADCAST'):

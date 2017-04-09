@@ -20,6 +20,10 @@ msgctxt "#32001"
 msgid "Listener UDP Port"
 msgstr "Listener UDP Port"
 
+msgctxt "#32012"
+msgid "Send envents to address"
+msgstr "Send envents to address"
+
 msgctxt "#32002"
 msgid "Light Intensity Levels"
 msgstr "Light Intensity Levels"

@@ -2,6 +2,7 @@
 <settings>
 	<category label="32010">
 		<setting label="32001" type="number"   id="udpPort" default="8278"/>
+		<setting label="32012" type="ipaddress" id="lightsHost" default="255.255.255.255"/>
 		<setting label="32002" type="lsep"/>
 		<setting label="32003" type="slider" id="lightsFullOn" option="percent" range="0,100" default="100"/>
 		<setting label="32004" type="slider" id="lightsFullOff" option="percent" range="0,100" default="0"/>
