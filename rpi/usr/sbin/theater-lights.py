@@ -4,7 +4,7 @@
 
 from threading import Thread
 import ConfigParser, sys, signal, select, socket, time, math, logging, logging.handlers
-import wiringpi2 as wiringpi
+import wiringpi
 
 config = ConfigParser.ConfigParser()
 config.read('/etc/theater-lights.conf')
@@ -192,10 +192,17 @@ TL_PWM = 1 # gpio pin 12 = wiringpi no. 1 (BCM 18)
 
 # Initialize PWM output for theater lights
 wiringpi.wiringPiSetup()
-wiringpi.pwmSetMode(0) # PWM_MODE_MS
-wiringpi.pwmSetClock(math.trunc(18750 / PWM_FREQ))
-wiringpi.pinMode(TL_PWM, 2)     # PWM mode
-wiringpi.pwmWrite(TL_PWM, 0)    # OFF
+
+if config.get('lights', 'pwm_mode') == 'HW':
+    wiringpi.pwmSetMode(0) # PWM_MODE_MS
+    wiringpi.pwmSetClock(math.trunc(18750 / PWM_FREQ))
+    wiringpi.pinMode(TL_PWM, 2)     # PWM mode
+    wiringpi.pwmWrite(TL_PWM, 0)    # OFF
+elif config.get('lights', 'pwm_mode') == 'SW':
+    wiringpi.pinMode(TL_PWM, 1)     # Software PWM mode
+    wiringpi.softPwmCreate(TL_PWM, 0, 100) # Setup PWM using Pin, Initial Value and Range parameters
+else:
+    rootLogger.error("Invalid pwm_mode: {0}. Exiting...".format(config.get('lights', 'pwm_mode')))
 
 def updateLights():
     global tlConfig
@@ -215,7 +222,11 @@ def updateLights():
                 changed = True
 
         if changed:
-            wiringpi.pwmWrite(TL_PWM, math.trunc(1024 * (1.00 - currentBrightness)))
+            if config.get('lights', 'pwm_mode') == 'HW':
+                wiringpi.pwmWrite(TL_PWM, math.trunc(1024 * (1.00 - currentBrightness)))
+            elif config.get('lights', 'pwm_mode') == 'SW':
+                wiringpi.softPwmWrite(TL_PWM, math.trunc(100 * (1.00 - currentBrightness)))
+
             rootLogger.debug("{0:.2f} <- {1} <- {2:.2f}".format(currentBrightness, lastEvent, targetBrightness))
         time.sleep(STEP_INTERVAL)
 
