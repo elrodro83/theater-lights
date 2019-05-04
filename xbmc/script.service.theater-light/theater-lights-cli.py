@@ -22,25 +22,40 @@ class MyPlayer(xbmc.Player) :
         s.send(data)
         s.close()
 
+    def onAVStarted(self):
+        xbmc.log('My Player - onAVStarted',level=xbmc.LOGDEBUG )
+        self.onPlayBackStarted()
+
     def onPlayBackStarted(self):
         if xbmc.Player().isPlayingVideo():
+            VIDEO = 1
+            xbmc.log('My Player - <b>playeractions<li>playing</b>',level=xbmc.LOGDEBUG )
             self.broadcastUDP( "<b>playeractions<li>playing</b>" )
 
     def onPlayBackEnded(self):
         if (VIDEO == 1):
+            xbmc.log('My Player - <b>playeractions<li>playback_ended</b>',level=xbmc.LOGDEBUG )
             self.broadcastUDP( "<b>playeractions<li>playback_ended</b>" )
 
     def onPlayBackStopped(self):
         if (VIDEO == 1):
+            xbmc.log('My Player - <b>playeractions<li>playback_stopped</b>',level=xbmc.LOGDEBUG )
             self.broadcastUDP( "<b>playeractions<li>playback_stopped</b>" )
 
     def onPlayBackPaused(self):
         if xbmc.Player().isPlayingVideo():
+            VIDEO = 1
+            xbmc.log('My Player - <b>playeractions<li>playback_paused</b>',level=xbmc.LOGDEBUG )
             self.broadcastUDP( "<b>playeractions<li>playback_paused</b>" )
 
     def onPlayBackResumed(self):
         if xbmc.Player().isPlayingVideo():
+            xbmc.log('My Player - <b>playeractions<li>playback_resumed</b>',level=xbmc.LOGDEBUG )
             self.broadcastUDP( "<b>playeractions<li>playback_resumed</b>" )
+
+    def onAVChange(self):
+        xbmc.log('My Player - onAVChange',level=xbmc.LOGDEBUG )
+        self.onPlayBackStarted()
 
 player=MyPlayer()
 
